@@ -2,10 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import {BrowserRouter, Routes, Route, useNavigate, Link,} from "react-router-dom";
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+/*  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -117,5 +118,29 @@ function App() {
     </>
   )
 }
+*/
+const [selectedName, setSelectedName] = useState("");
 
-export default App
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+            <HomePage setSelectedName={setSelectedName}/>
+          }
+        />
+
+        <Route path="/professional" element={
+            <ProfessionalPage selectedName={selectedName}/>
+          }
+        />
+
+        <Route path="/personal" element={
+            <PersonalPage selectedName={selectedName}/>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+
+
+}
