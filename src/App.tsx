@@ -1,24 +1,19 @@
-/*import Home from "./pages/Home";
-import Professional from "./pages/Professional";
-import Personal from "./pages/Personal";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./components/pages/Home";
+import Professional from "./components/pages/Professional";
+import Personal from "./components/pages/Personal";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/professional" element={<Professional />} />
-      <Route path="/personal" element={<Personal />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/professional" element={<Professional />} />
+        <Route path="/personal" element={<Personal />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
-
-export default App;
-*/
-
-import Home from "./components/pages/Home";
-
-function App() {
-  return <Home />;
 }
 
 export default App;

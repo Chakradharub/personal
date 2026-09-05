@@ -29,16 +29,18 @@ function Professional() {
     <main className="professional-page">
 
       <nav className="top-navigation">
-        <Link to="/personal" className="switch-link">
-          Switch to Personal →
-        </Link>
-      </nav>
 
+  <Link to="/" className="home-icon" aria-label="Return to character selection" title="Character selection">
+    ⌂
+  </Link>
+
+  <Link to={`/personal?name=${encodeURIComponent(name)}`} className="switch-link">
+    Switch to Personal
+  </Link>
+
+</nav>
       <section className="professional-content">
-
         <div className="hello-section">
-          <div className="matrix-symbol">&gt;_</div>
-
           <h1>
             Hello{" "}
             <span className="typed-name">
@@ -50,45 +52,93 @@ function Professional() {
           <p className="intro-text">
             Welcome to my professional space.
           </p>
+
         </div>
 
+        {/* About Me */}
+        <section className="about-section">
+
+          <div className="section-heading">
+            <span className="section-number">
+              01
+            </span>
+
+            <h2>
+              About Me
+            </h2>
+          </div>
+
+          <div className="about-content">
+            <div className="about-main">
+              <p>
+               Something
+              </p>
+            </div>
+
+            <div className="about-details">
+              <div className="detail">
+                <span>Based in </span>
+                <strong>Newcastle upon Tyne(The Toon), England</strong>
+              </div>
+              <div className="detail">
+                <span>Specialisation </span>
+                <strong>Full Stack Developer who hates CSS</strong>
+              </div>
+              <div className="detail">
+                <span>Experience </span>
+                <strong>Almost 5 Years</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CV */}
         <section className="cv-section">
+          <div className="section-heading">
+            <span className="section-number">
+              02
+            </span>
+
+            <h2>
+              Curriculum Vitae
+            </h2>
+          </div>
 
           <div className="cv-placeholder">
-            <h2>Curriculum Vitae</h2>
 
             <p>
-              This is where your CV will go.
+              CV here.
             </p>
 
             <div className="cv-content">
               <div>
-                <h3>Experience</h3>
+                <h3>
+                  Experience
+                </h3>
                 <p>
-                  Your professional experience will go here.
+                  exp here.
                 </p>
               </div>
-
               <div>
-                <h3>Education</h3>
+                <h3>
+                  Education
+                </h3>
                 <p>
-                  Your education will go here.
+                  education here.
                 </p>
               </div>
-
               <div>
-                <h3>Skills</h3>
+                <h3>
+                  Skills
+                </h3>
                 <p>
-                  Your skills will go here.
+                  skills here.
                 </p>
               </div>
             </div>
           </div>
-
         </section>
-
       </section>
-
     </main>
   );
 }

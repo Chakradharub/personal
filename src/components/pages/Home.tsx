@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import neoImage from "../../images/neo.jpg";
 import trinityImage from "../../images/trinity.jpg";
@@ -40,14 +41,26 @@ const profiles: Profile[] = [
 ];
 
 function Home() {
+  const navigate = useNavigate();
+
   const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [isLeaving, setIsLeaving] = useState(false);
 
   const handleSelect = (name: string) => {
+    // Set the selected character
     setSelectedName(name);
+
+    // Start the exit animation
+    setIsLeaving(true);
+
+    // Wait for animation, then go to Professional page
+    setTimeout(() => {
+      navigate(`/professional?name=${encodeURIComponent(name)}`);
+    }, 900);
   };
 
   return (
-    <main className="home-page">
+    <main className={`home-page ${isLeaving ? "page-leaving" : ""}`}>
       <section className="selection-container">
 
         <p className="welcome-text">
@@ -66,6 +79,7 @@ function Home() {
                 selectedName === profile.name ? "selected" : ""
               }`}
               onClick={() => handleSelect(profile.name)}
+              disabled={isLeaving}
             >
               <img
                 src={profile.image}
@@ -81,7 +95,7 @@ function Home() {
 
         {selectedName && (
           <p className="selection-message">
-            You selected {selectedName}
+            Entering as {selectedName}...
           </p>
         )}
 

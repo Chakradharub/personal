@@ -1,18 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Personal() {
+  const [searchParams] = useSearchParams();
+
+  const name = searchParams.get("name") || "Guest";
+
   return (
     <main className="personal-page">
 
       <nav className="top-navigation">
-        <Link to="/professional" className="switch-link">
-          ← Switch to Professional
+        <Link to={`/professional?name=${encodeURIComponent(name)}`} className="switch-link">
+          Switch to Professional
         </Link>
       </nav>
 
       <section className="personal-content">
 
-        <p className="section-label">PERSONAL</p>
+        <p className="section-label">
+          PERSONAL
+        </p>
 
         <h1>
           Me, outside of work.
@@ -24,22 +30,30 @@ function Personal() {
         </p>
 
         <section className="personal-section">
-          <h2>About me</h2>
+
+          <h2>
+            About me
+          </h2>
 
           <p>
             Write about yourself here. This could include your
-            interests, hobbies, passions, travel, family, music,
+            interests, hobbies, passions, travel, music,
             photography, or anything else you'd like people to know.
           </p>
+
         </section>
 
         <section className="personal-section">
-          <h2>Life outside work</h2>
+
+          <h2>
+            Life outside work
+          </h2>
 
           <p>
             Add whatever you want here about your life outside
             your career.
           </p>
+
         </section>
 
       </section>
