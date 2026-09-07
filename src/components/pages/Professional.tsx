@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import CVTimeline from "../CVTimeline";
 
 function Professional() {
   const [searchParams] = useSearchParams();
@@ -94,50 +95,21 @@ function Professional() {
 
         {/* CV */}
         <section className="cv-section">
-          <div className="section-heading">
-            <span className="section-number">
-              02
-            </span>
 
-            <h2>
-              Curriculum Vitae
-            </h2>
-          </div>
+  <div className="section-heading">
+    <span className="section-number">
+      02
+    </span>
 
-          <div className="cv-placeholder">
+    <h2>
+      Curriculum Vitae
+    </h2>
+  </div>
 
-            <p>
-              CV here.
-            </p>
+  <CVTimeline />
 
-            <div className="cv-content">
-              <div>
-                <h3>
-                  Experience
-                </h3>
-                <p>
-                  exp here.
-                </p>
-              </div>
-              <div>
-                <h3>
-                  Education
-                </h3>
-                <p>
-                  education here.
-                </p>
-              </div>
-              <div>
-                <h3>
-                  Skills
-                </h3>
-                <p>
-                  skills here.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+</section>
+
       </section>
     </main>
   );
